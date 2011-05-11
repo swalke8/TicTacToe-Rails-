@@ -1,0 +1,13 @@
+<h1>
+  <% if board_full? %>
+    Game Over
+  <% else %>
+    Player
+    <% if player_ones_turn? %>
+      One's
+    <% else %>
+      Two's
+    <% end %>
+    move
+  <% end %>
+</h1>

@@ -1,0 +1,23 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>Player one</th>
+    <th>Player two</th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.player_one %></td>
+    <td><%= game.player_two %></td>
+
+    <td><%= link_to 'Load', '/move/index' %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_game_path %>
+<%= link_to 'Back', '/menu/index' %>

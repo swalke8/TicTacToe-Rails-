@@ -1,0 +1,11 @@
+<table>
+  <% iterate_row do |row| %>
+    <tr>
+      <% iterate_column do |column| %>
+        <td>
+          <%= render :partial => 'cell', :locals => {:row => row, :column => column} %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

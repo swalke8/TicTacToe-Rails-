@@ -1,0 +1,13 @@
+<% if empty_cell?(row, column) %>
+  <% if !game_over? %>
+    <form name="input" action="/move/index">
+      <button type="submit" name="move" value=<%=row%><%=column%>> - </button>
+    </form>
+  <% else %>
+    <button> - </button>
+  <% end %>
+<%elsif draw_x?(row, column)%>
+  <button>X</button>
+<%else%>
+  <button>O</button>
+<%end %>

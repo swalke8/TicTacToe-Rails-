@@ -1,0 +1,28 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h3>Player One</h3>
+    <%= f.radio_button(:player_one, 1, :checked => true) %> Human <br/>
+  </div>
+  <div class="field">
+    <h3>Player Two</h3>
+    <%= f.radio_button(:player_two, 1, :checked => true) %> Human <br/>
+    <%= f.radio_button(:player_two, 2) %> Computer
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

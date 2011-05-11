@@ -1,0 +1,29 @@
+<%= form_for(@player_move) do |f| %>
+  <% if @player_move.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player_move.errors.count, "error") %> prohibited this player_move from being saved:</h2>
+
+      <ul>
+      <% @player_move.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% session[:move] = [params[:move][0], params[:move][1]] %>
+  <div class="field">
+    <%= f.label :row %><br />
+    <%= f.text_field :row, :value => params[:move][0] %>
+  </div>
+  <div class="field">
+    <%= f.label :column %><br />
+    <%= f.text_field :column, :value => params[:move][1] %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value, :value => session[:board].player_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

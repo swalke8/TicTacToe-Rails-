@@ -1,0 +1,7 @@
+<% if game_over? %>
+  <% if has_winner? %>
+    <%= render :partial => 'display_winner' %>
+  <% else %>
+    <h2> Cats Game </h2>
+  <% end %>
+<% end %>

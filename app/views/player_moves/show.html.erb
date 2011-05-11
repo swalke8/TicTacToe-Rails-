@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Row:</b>
+  <%= @player_move.row %>
+</p>
+
+<p>
+  <b>Column:</b>
+  <%= @player_move.column %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_move_path(@player_move) %> |
+<%= link_to 'Back', player_moves_path %>
