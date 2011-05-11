@@ -4,6 +4,6 @@ class Game < ActiveRecord::Base
   has_many :player_moves
 
   def add_move(row, column, value)
-    PlayerMove.create!(:row => row, :column => column, :value => value)
+    PlayerMove.create!(:game_id => self.id, :row => row, :column => column, :value => value)
   end
 end

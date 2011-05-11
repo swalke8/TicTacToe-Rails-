@@ -29,10 +29,6 @@ module MoveHelper
     !player_ones_turn?
   end
 
-  def board_full?
-    session[:board].full?
-  end
-
   def has_winner?
     @observer.has_winner?
   end

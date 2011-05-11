@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
   def index
+    session[:board] = nil
     @games = Game.all
 
     respond_to do |format|
