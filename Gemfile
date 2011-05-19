@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
+gem 'rails3-generators'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,7 +10,18 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
-gem 'swttt-gem', '1.1.0'
+gem 'swttt-gem', '1.6.0'
+
+group :test, :cucumber do
+  gem 'rspec-rails', '>= 2.5.0'
+  gem 'autotest', '~> 4.4.6'
+  gem 'autotest-rails', '~> 4.1.0'
+  gem 'cucumber-rails', '>= 0.4.1'
+  gem 'spork', '~> 0.8.4'
+  gem 'capybara', '~> 0.4.1.2'
+  gem 'database_cleaner', '~> 0.6.7'
+  gem 'launchy', '~> 0.4.0'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'

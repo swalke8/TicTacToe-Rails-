@@ -1,6 +1,6 @@
 <h1>
-  <% if game_over?  %>
-    Game Over
+  <% if game_over? %>
+    <%= render :partial => 'display_winner' %>
   <% else %>
     Player
     <% if player_ones_turn? %>

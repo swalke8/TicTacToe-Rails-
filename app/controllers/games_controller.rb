@@ -2,23 +2,11 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
   def index
-    session[:board] = nil
     @games = Game.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @games }
-    end
-  end
-
-  # GET /games/1
-  # GET /games/1.xml
-  def show
-    @game = Game.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @game }
     end
   end
 
@@ -41,13 +29,11 @@ class GamesController < ApplicationController
   # POST /games.xml
   def create
     @game = Game.new(params[:game])
-    session[:board] = Board.new
-    session[:player_two] = @game.player_two
-    session[:game] = @game
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to "/move/index", :notice => 'Game was created successfully!' }
+        session[:game] = @game.id
+        format.html { redirect_to "/move/index", :notice => 'Game was created successfully!'}
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
@@ -78,6 +64,14 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.destroy
 
+    respond_to do |format|
+      format.html { redirect_to(games_url) }
+      format.xml  { head :ok }
+    end
+  end
+
+  def destroy_all
+    Game.destroy_all
     respond_to do |format|
       format.html { redirect_to(games_url) }
       format.xml  { head :ok }

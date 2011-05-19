@@ -3,14 +3,17 @@
 <table>
   <tr>
     <th>Player one</th>
+    <th> | </th>
     <th>Player two</th>
   </tr>
 
 <% @games.each do |game| %>
   <tr>
     <td><%= game.player_one %></td>
+    <td></td>
     <td><%= game.player_two %></td>
-
+    <td><%= link_to 'Load', "/move/load?game=#{game.id}" %></td>
+    <td> | </td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -18,5 +21,6 @@
 
 <br />
 
-<%= link_to 'New Game', new_game_path %>
-<%= link_to 'Back', '/menu/index' %>
+<%= link_to 'New Game', new_game_path %> |
+<%= link_to 'Back', '/menu/index' %> |
+<%= link_to 'Destroy All', '/games/destroy_all', :confirm => 'Are you sure?'%>

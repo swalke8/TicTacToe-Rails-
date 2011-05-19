@@ -1,5 +1,8 @@
 TicTacToe::Application.routes.draw do
   get "move/index"
+  get "move/load"
+  get "move/undo"
+  get "games/destroy_all"
 
   resources :player_moves
 

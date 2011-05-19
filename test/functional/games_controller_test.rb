@@ -37,11 +37,6 @@ class GamesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update game" do
-    put :update, :id => @game.to_param, :game => @update
-    assert_redirected_to game_path(assigns(:game))
-  end
-
   test "should destroy game" do
     assert_difference('Game.count', -1) do
       delete :destroy, :id => @game.to_param

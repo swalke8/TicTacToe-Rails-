@@ -1,8 +1,12 @@
 <%= render :partial => 'header' %>
 <%= render :partial => 'table' %>
-<%= render :partial => 'check_win' %>
 
 <br/>
-<form name="Home" action="../menu/index">
-  <button type="submit" name="move">Home</button>
+<form name="Home" action="/">
+  <button type="submit">Home</button>
 </form>
+<% if @board.present? && @board.number_of_moves_made > 0 && !@observer.game_over? %>
+  <form name="Undo" action="/move/undo">
+    <button type="submit">Undo</button>
+  </form>
+<% end %>

@@ -1,5 +1,9 @@
-<% if player_one_won? %>
-  <h2> Player 1 wins! </h2>
+<% if has_winner? %>
+  <% if player_one_won? %>
+    Player 1 wins!
+  <% else %>
+    Player 2 wins!
+  <% end %>
 <% else %>
-  <h2> Player 2 wins! </h2>
+  Cats Game!
 <% end %>

@@ -1,6 +1,6 @@
 module MoveHelper
   def empty_cell?(row, column)
-    session[:board].is_empty_at?(row, column)
+    @board.is_empty_at?(row, column)
   end
 
   def game_over?
@@ -8,11 +8,11 @@ module MoveHelper
   end
 
   def draw_x?(row, column)
-    session[:board].value_at(row,column) == 1
+    @board.value_at(row, column) == 1
   end
 
   def iterate_row
-    (1..session[:board].dimension).each do |row|
+    (1..@board.dimension).each do |row|
       yield(row)
      end
   end
@@ -22,7 +22,7 @@ module MoveHelper
   end
 
   def player_ones_turn?
-    session[:board].player_value == 1
+    @board.player_value == 1
   end
 
   def player_one_won?

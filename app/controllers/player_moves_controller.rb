@@ -1,26 +1,4 @@
 class PlayerMovesController < ApplicationController
-  # GET /player_moves
-  # GET /player_moves.xml
-  def index
-    @player_moves = PlayerMove.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @player_moves }
-    end
-  end
-
-  # GET /player_moves/1
-  # GET /player_moves/1.xml
-  def show
-    @player_move = PlayerMove.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @player_move }
-    end
-  end
-
   # GET /player_moves/new
   # GET /player_moves/new.xml
   def new
