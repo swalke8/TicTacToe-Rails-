@@ -22,6 +22,7 @@ class MoveController < ApplicationController
     session[:game] = params[:game]
     redirect_to('/move/index')
   end
+
 private
 
   def load_game
