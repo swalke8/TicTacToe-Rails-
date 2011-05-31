@@ -6,7 +6,7 @@
   <button type="submit">Home</button>
 </form>
 <% if @board.present? && @board.number_of_moves_made > 0 && !@observer.game_over? %>
-  <form name="Undo" action="/move/undo">
+  <form name="Undo" action="/games/undo">
     <button type="submit">Undo</button>
   </form>
 <% end %>

@@ -4,21 +4,21 @@ Feature: Game
   I want to to create and load games
 
   Scenario: Create a game
-    When I am on the "Main Menu" page
+    When I am on "Main Menu"
     And I follow "New Game"
     And I press "Create Game"
-    Then I should be on the "Move Page"
+    Then I should be on the "Games Page"
 
   Scenario: Load a game
     Given an existing game
-    When I am on the "Main Menu" page
+    When I am on "Main Menu"
     And I follow "Load Game"
     And I follow "Load"
-    Then I should be on the "Move Page"
+    Then I should be on the "Games Page"
 
   Scenario: Plays out a game
     Given I am playing a game
-    And I am on the "Move Page"
+    And I am on the "Games Page"
     And I press "move11"
     And I press "move12"
     And I press "move21"

@@ -23,7 +23,7 @@ class GameTest < ActiveSupport::TestCase
     @board.move(1,2)
     @game.add_player_move(1,1,1)
     @game.add_player_move(1,2,-1)
-    @game.load_board(@board2)
+    @board2 = @game.load_board
     iterate_board { |row, column| assert_equal(@board.value_at(row, column), @board2.value_at(row, column)) }
   end
 

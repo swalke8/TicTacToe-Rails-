@@ -5,22 +5,6 @@ class PlayerMovesControllerTest < ActionController::TestCase
     @player_move = player_moves(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:player_moves)
-  end
-
-  test "should show player_move" do
-    get :show, :id => @player_move.to_param
-    assert_response :success
-  end
-
-   test "should update player_move" do
-    put :update, :id => @player_move.to_param, :player_move => @player_move.attributes
-    assert_redirected_to player_move_path(assigns(:player_move))
-  end
-
   test "should destroy player_move" do
     assert_difference('PlayerMove.count', -1) do
       delete :destroy, :id => @player_move.to_param

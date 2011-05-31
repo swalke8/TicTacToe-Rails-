@@ -12,7 +12,7 @@
     <td><%= game.player_one %></td>
     <td></td>
     <td><%= game.player_two %></td>
-    <td><%= link_to 'Load', "/move/load?game=#{game.id}" %></td>
+    <td><%= link_to 'Load', "/games/load?game=#{game.id}" %></td>
     <td> | </td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

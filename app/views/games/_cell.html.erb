@@ -1,6 +1,6 @@
 <% if empty_cell?(row, column) %>
   <% if !game_over? %>
-    <form name="input" action="/move/index">
+    <form name="input" action="/games/show">
       <input type="hidden" name="move_row" value=<%=row%>/>
       <input type = "hidden" name="move_column" value=<%=column%>/>
       <button name="move" value="move<%=row%><%=column%>"> - </button>

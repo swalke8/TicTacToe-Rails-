@@ -1,19 +1,4 @@
 class PlayerMovesController < ApplicationController
-  # GET /player_moves/new
-  # GET /player_moves/new.xml
-  def new
-    @player_move = PlayerMove.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @player_move }
-    end
-  end
-
-  # GET /player_moves/1/edit
-  def edit
-    @player_move = PlayerMove.find(params[:id])
-  end
 
   # POST /player_moves
   # POST /player_moves.xml
@@ -27,22 +12,6 @@ class PlayerMovesController < ApplicationController
         format.xml  { render :xml => @player_move, :status => :created, :location => @player_move }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @player_move.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /player_moves/1
-  # PUT /player_moves/1.xml
-  def update
-    @player_move = PlayerMove.find(params[:id])
-
-    respond_to do |format|
-      if @player_move.update_attributes(params[:player_move])
-        format.html { redirect_to(@player_move, :notice => 'Player move was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @player_move.errors, :status => :unprocessable_entity }
       end
     end

@@ -24,16 +24,12 @@ class GamesControllerTest < ActionController::TestCase
       post :create, :game => @update
     end
 
-    assert_redirected_to '/move/index'
+    assert_redirected_to '/games/show'
   end
 
   test "should show game" do
-    get :show, :id => @game.to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => @game.to_param
+    get :load, :game => @game.to_param
+    get :show
     assert_response :success
   end
 

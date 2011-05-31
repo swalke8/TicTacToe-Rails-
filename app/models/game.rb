@@ -9,23 +9,31 @@ class Game < ActiveRecord::Base
   end
 
   def undo_move
-    (player_moves.pop).destroy
-    (player_moves.pop).destroy if self.player_two == 2
+    if (player_moves.size > 0 || (player_moves.size>1 && self.player_two == 2))
+      (player_moves.pop).destroy
+      (player_moves.pop).destroy if self.player_two == 2
+    end
   end
 
-  def load_board(board)
+  def load_board
+    board = Board.new
     player_moves.each { |load_move| board.move(load_move.row, load_move.column, load_move.value) }
+    return board
   end
 
   def add_player_move(row, column, value)
     player_moves.create(:row => row, :column => column, :value => value)
   end
 
+  def game_over?
+    setup_game_variables
+    @observer.game_over?
+  end
+
   private
 
   def setup_game_variables
-    @board = Board.new
-    load_board(@board)
+    @board = load_board
     @observer = GameObserver.new(@board)
     @computer = MinimaxComputer.new(@board, @observer) if self.player_two == 2
   end
